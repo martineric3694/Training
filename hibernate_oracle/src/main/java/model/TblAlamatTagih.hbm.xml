@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 1, 2016 2:21:00 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="model.TblAlamatTagih" table="TBL_ALAMAT_TAGIH">
+        <id name="alamatId" type="big_decimal">
+            <column name="ALAMAT_ID" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <property name="alamat" type="string">
+            <column name="ALAMAT" length="200" />
+        </property>
+        <set name="tblCustomerAlamats" table="TBL_CUSTOMER_ALAMAT" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ALAMAT_ID" precision="22" scale="0" not-null="true" />
+            </key>
+            <one-to-many class="model.TblCustomerAlamat" />
+        </set>
+    </class>
+</hibernate-mapping>

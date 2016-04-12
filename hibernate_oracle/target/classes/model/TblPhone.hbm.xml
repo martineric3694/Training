@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 1, 2016 2:21:00 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="model.TblPhone" table="TBL_PHONE">
+        <id name="phoneId" type="big_decimal">
+            <column name="PHONE_ID" precision="22" scale="0" />
+            <generator class="foreign">
+                <param name="property">tblCustomer</param>
+            </generator>
+        </id>
+        <one-to-one name="tblCustomer" class="model.TblCustomer" constrained="true"></one-to-one>
+        <property name="phoneNo" type="string">
+            <column name="PHONE_NO" length="15" />
+        </property>
+    </class>
+</hibernate-mapping>

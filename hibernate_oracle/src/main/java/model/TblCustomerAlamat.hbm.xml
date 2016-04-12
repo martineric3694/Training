@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 1, 2016 2:21:00 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="model.TblCustomerAlamat" table="TBL_CUSTOMER_ALAMAT">
+        <id name="customerAlamatId" type="big_decimal">
+            <column name="CUSTOMER_ALAMAT_ID" precision="22" scale="0" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="tblAlamatTagih" class="model.TblAlamatTagih" fetch="select">
+            <column name="ALAMAT_ID" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+        <many-to-one name="tblCustomer" class="model.TblCustomer" fetch="select">
+            <column name="CUSTOMER_ID" precision="22" scale="0" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>
